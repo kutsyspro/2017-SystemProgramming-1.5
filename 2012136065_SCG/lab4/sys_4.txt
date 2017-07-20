@@ -1,0 +1,64 @@
+http://forum.falinux.com/zbxe/?mid=C_LIB&page=2&document_srl=408226&sort_index=readed_count&order_type=desc
+
+fread 파일로부터 지정한 개수만큼 자료 읽기
+장길석
+http://forum.falinux.com/zbxe/index.php?document_srl=4082262007.06.11 12:13:51 (*.212.137.23) 107175입출력 함수
+설명	
+파일을 통해 데이터를 읽어 들입니다.
+헤더	stdio.h
+형태	size_t fread( void *ptr, size_t size, size_t nitems, FILE *stream);
+인수	void *ptr	파일 내용을 읽어 들일 메모리 포인터
+size_t size	데이터 하나의 크기
+size_t nitems	읽어 등일 데이터의 개수
+FILE *stream	대상 파일 스트림
+반환	size_t	읽어들인 데이터 개수를 반환하며, 오류가 발생하면 -1을 반환
+예제	
+// 아래의 예제는 파일을 fread()와 fwrite()를 이용한
+// 파일 복사를 하는 예입니다.
+
+#include 
+
+int main( void)
+{
+   FILE    *fp_sour;    // 파일 원본을 위한 파일 스트림 포인터
+   FILE    *fp_dest;    // 복사 대상을 위한 파일 스트림 포인터
+   char     buff[1024]; // 파일 내요을 읽기/쓰기를 위한 버퍼
+   size_t   n_size;     // 읽거나 쓰기를 위한 데이터의 개수
+                                          
+   fp_sour  = fopen( "./main.c"  , "r");
+   fp_dest  = fopen( "./main.bck", "w");
+                            
+   while( 0 < (n_size = fread( buff, 1, 1024, fp_sour)))
+   {
+      fwrite( buff, 1, n_size, fp_dest);
+   }                            
+
+   fclose( fp_sour);
+   fclose( fp_dest);
+   return 0;
+}
+
+]$ ./a.out
+]$ cat main.bck
+#include 
+
+int main( void)
+{
+   FILE    *fp_sour;
+   FILE    *fp_dest;
+   char     buff[1024];
+   size_t   n_size;
+                                          
+   fp_sour  = fopen( "./main.c"  , "r");
+   fp_dest  = fopen( "./main.bck", "w");
+                            
+   while( 0 < (n_size = fread( buff, 1, 1024, fp_sour)))
+   {
+      fwrite( buff, 1, n_size, fp_dest);
+   }                            
+
+   fclose( fp_sour);
+   fclose( fp_dest);
+   return 0;
+}
+]$

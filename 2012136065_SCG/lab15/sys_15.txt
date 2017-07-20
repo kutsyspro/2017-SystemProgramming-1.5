@@ -1,0 +1,1 @@
+readelf만 치면 옵션에 대한 설명 나오는데, 그거 보고 sprintf활용하여 system으로 실행

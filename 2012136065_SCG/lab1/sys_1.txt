@@ -1,0 +1,11 @@
+static library
+
+http://blog.naver.com/PostView.nhn?blogId=xogml_blog&logNo=130138049704
+
+shared library
+
+http://mintnlatte.tistory.com/156
+
+--------------------------------------------------------
+
+shared library gcc 명령어 사용 컴파일 할 때 -l 안쓰고 .so 파일명 -L. 만 하면 된다.

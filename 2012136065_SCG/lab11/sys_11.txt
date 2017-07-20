@@ -1,0 +1,3 @@
+https://www.joinc.co.kr/w/Site/system_programing/Book_LSP/ch08_IPC
+
+use named pipe
