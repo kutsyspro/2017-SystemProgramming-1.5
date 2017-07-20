@@ -1,0 +1,7 @@
+Lab-2 
+
+vi ~/.bashrc
+
+export PS1=”\u@\h\w\\$”
+
+source .bashrc
